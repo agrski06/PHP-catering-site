@@ -1,0 +1,15 @@
+{
+    "name": "agrski/catering",
+    "description": "Catering application",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "app/"
+        ]
+    },
+    "require": {
+        "symfony/routing": "^6.2"
+    }
+}
