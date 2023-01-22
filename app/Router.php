@@ -6,6 +6,7 @@ include_once("controllers/AboutController.php");
 include_once("controllers/OrderController.php");
 include_once("controllers/AccountController.php");
 include_once("controllers/LoginController.php");
+include_once("controllers/LoginSuccessfulController.php");
 include_once("controllers/LoginUserController.php");
 include_once("controllers/RegisterController.php");
 include_once("controllers/RegisterUserController.php");
@@ -34,7 +35,8 @@ class Router
             "loginUser" => new LoginUserController(),
             "register" => new RegisterController(),
             "registerUser" => new RegisterUserController(),
-            "logout" => new LogoutController()
+            "logout" => new LogoutController(),
+            "loginSuccessful" => new LoginSuccessfulController()
         ];
     }
 

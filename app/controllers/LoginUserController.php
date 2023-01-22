@@ -45,7 +45,7 @@ class LoginUserController
             $this->isError = false;
         }
         else {
-            require_once("../view/registerSuccess.php");
+            require_once("../view/loginSuccess.php");
         }
     }
 
