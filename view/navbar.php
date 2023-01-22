@@ -8,7 +8,7 @@
       <li class="nav-item"><a href="index.php?content_id=orders" class="nav-link">Zamówienie</a></li>
       <li class="nav-item"><a href="index.php?content_id=about" class="nav-link">O nas</a></li>
       <?php 
-      if (isset($_SESSION["userId"])) {
+      if (isset($_SESSION["userId"]) && $_GET["content_id"] != "logout") {
         echo '<li class="nav-item"><a href="index.php?content_id=account" class="nav-link">Konto</a></li>';
       } 
       else {

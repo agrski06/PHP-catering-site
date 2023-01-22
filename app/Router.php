@@ -22,7 +22,8 @@ class Router
 
     private $prevRoute = "";
 
-    function __construct() {
+    function __construct()
+    {
         $this->routes = [
             "home" => new HomeController(),
             "ingredients" => new IngredientsController(),
@@ -44,12 +45,13 @@ class Router
             return;
         }
         if ($this->prevRoute != $destination) {
-                $this->routes[$destination]->show();
-                $this->prevRoute = $destination;
+            $this->routes[$destination]->show();
+            $this->prevRoute = $destination;
         }
     }
 
-    public function showError($message) {
+    public function showError($message)
+    {
         $error = $message;
         require("../view/customError.php");
     }

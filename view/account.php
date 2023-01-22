@@ -11,8 +11,6 @@
         action="index.php?content_id=logout" 
         method="post">
 
-
-
         <div style="padding: 1rem;">
         <input type="submit" value="Logout">
         </div>
