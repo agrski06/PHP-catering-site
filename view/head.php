@@ -10,6 +10,6 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js"></script>
 
-  <script src="js/recipes.js"></script>
+  
   <script src="js/orders.js"></script>
 </head>
