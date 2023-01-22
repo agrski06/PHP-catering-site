@@ -1,15 +1,37 @@
 <?php
+
+include_once("controllers/HomeController.php");
+include_once("controllers/IngredientsController.php");
+include_once("controllers/AboutController.php");
+include_once("controllers/OrderController.php");
+include_once("controllers/AccountController.php");
+include_once("controllers/LoginController.php");
+include_once("controllers/RegisterController.php");
+include_once("controllers/RegisterUserController.php");
+
 class Router
 {
-    private $routes = [
-        "home" => "../view/home.php",
-        "ingredients" => "../view/ingredients.php",
-        "orders" => "../view/orders.php",
-        "about" => "../view/about.php",
-        "account" => "../view/account.php"
-    ];
+    // private $home = new HomeController;
+    // private $ingredients = new IngredientsController();
+    // private $about = new AboutController();
+    // private $registerUser = new RegisterUserController();
+
+    private $routes = [];
 
     private $prevRoute = "";
+
+    function __construct() {
+        $this->routes = [
+            "home" => new HomeController(),
+            "ingredients" => new IngredientsController(),
+            "orders" => new OrderController(),
+            "about" => new AboutController(),
+            "account" => new AccountController(),
+            "login" => new LoginController(),
+            "register" => new RegisterController(),
+            "registerUser" => new RegisterUserController()
+        ];
+    }
 
     public function show($destination)
     {
@@ -18,7 +40,7 @@ class Router
             return;
         }
         if ($this->prevRoute != $destination) {
-            require_once $this->routes[$destination];
+            $this->routes[$destination]->show();
             $this->prevRoute = $destination;
         }
     }

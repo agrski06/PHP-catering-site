@@ -2,47 +2,39 @@
 class Product
 {
     protected $id;
-    protected $title;
-    protected $description;
+    protected $apiId;
+    protected $name;
     protected $price;
-    protected $image;
+    protected $imageLink;
 
     // GETTERS
     public function getId() {
         return $this->id;
     }
 
-    public function getTitle() {
-        return $this->title;
-    }
-
-    public function getDescription() {
-        return $this->description;
+    public function getName() {
+        return $this->name;
     }
 
     public function getPrice() {
         return $this->price;
     }
 
-    public function getImage() {
-        return $this->image;
+    public function getImageLink() {
+        return $this->imageLink;
     }
 
     // SETTERS
-    public function setTitle(string $title) {
-        $this->title = $title;
-    }
-
-    public function setDescription(string $description) {
-        $this->description = $description;
+    public function setName(string $name) {
+        $this->name = $name;
     }
 
     public function setPrice(string $price) {
         $this->price = $price;
     }
 
-    public function setImage(string $image) {
-        $this->image = $image;
+    public function setImageLink(string $imageLink) {
+        $this->imageLink = $imageLink;
     }
 
     // CRUD OPERATIONS
