@@ -6,8 +6,10 @@ include_once("controllers/AboutController.php");
 include_once("controllers/OrderController.php");
 include_once("controllers/AccountController.php");
 include_once("controllers/LoginController.php");
+include_once("controllers/LoginUserController.php");
 include_once("controllers/RegisterController.php");
 include_once("controllers/RegisterUserController.php");
+include_once("controllers/LogoutController.php");
 
 class Router
 {
@@ -28,8 +30,10 @@ class Router
             "about" => new AboutController(),
             "account" => new AccountController(),
             "login" => new LoginController(),
+            "loginUser" => new LoginUserController(),
             "register" => new RegisterController(),
-            "registerUser" => new RegisterUserController()
+            "registerUser" => new RegisterUserController(),
+            "logout" => new LogoutController()
         ];
     }
 

@@ -15,11 +15,6 @@ class User
     function __construct()
     {
         $this->db = new DataBase("localhost", "root", "", "catering");
-        // $this->firstName = $fn;
-        // $this->lastName = $ln;
-        // $this->userName = $un;
-        // $this->password = $pass;
-        // $this->email = $email;
     }
 
     public function saveToDB()

@@ -8,6 +8,7 @@
         padding: 1rem;
         flex-direction: column;
         "
+        action="index.php?content_id=loginUser" 
         method="post">
 
         <div>

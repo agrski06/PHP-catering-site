@@ -22,6 +22,14 @@ class RegisterUserController extends Controller
                 Controller::__construct("../view/invalidData.php");
                 return;
             }
+            if (!ctype_alnum($_POST["login"])) {
+                Controller::__construct("../view/invalidData.php");
+                return;
+            }
+            if (!ctype_alpha($_POST["firstname"]) || !ctype_alpha($_POST["lastname"])) {
+                Controller::__construct("../view/invalidData.php");
+                return;
+            }
             $user = new User();
             $user->setUserName($_POST["login"]);
             $user->setPassword(password_hash($_POST["password"], PASSWORD_DEFAULT));
