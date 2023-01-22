@@ -40,9 +40,14 @@ class Router
             return;
         }
         if ($this->prevRoute != $destination) {
-            $this->routes[$destination]->show();
-            $this->prevRoute = $destination;
+                $this->routes[$destination]->show();
+                $this->prevRoute = $destination;
         }
+    }
+
+    public function showError($message) {
+        $error = $message;
+        require("../view/customError.php");
     }
 }
 

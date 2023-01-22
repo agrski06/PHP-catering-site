@@ -9,4 +9,5 @@ class Controller {
     public function show() {
         require_once($this->viewPath);
     }
+
 }
