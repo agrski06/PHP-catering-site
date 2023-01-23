@@ -43,6 +43,10 @@ class IngredientsController extends Controller
                 array_push($ingredients, $response['strIngredient' . strval($i)] . ': ' . $response['strMeasure' . strval($i)]);
         }
 
+        $_SESSION["apiId"] = $response['idMeal'];
+        $_SESSION["thumbnailLink"] = $thumbnailLink;
+        $_SESSION["name"] = $name;
+
         require_once("../view/ingredients.php");
         
         return;

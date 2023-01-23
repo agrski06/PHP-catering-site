@@ -1,4 +1,6 @@
 <?php
+include_once("../app/Database.php");
+
 class Product
 {
     protected $id;
@@ -6,6 +8,12 @@ class Product
     protected $name;
     protected $price;
     protected $imageLink;
+
+    private $db;
+
+    function __construct() {
+        $this->db = new DataBase("localhost", "root", "", "catering");
+    }
 
     // GETTERS
     public function getId() {
@@ -37,24 +45,43 @@ class Product
         $this->imageLink = $imageLink;
     }
 
-    // CRUD OPERATIONS
-    public function create(array $data)
+    public function setApiId(string $id) {
+        $this->apiId = $id;
+    }
+
+    public function saveToDB() {
+        try {
+            // if product not in database, add product
+            if($this->db->getMysqli()->query("select * from Product where apiId='$this->apiId'")->num_rows == 0) {
+                $this->db->insert("insert into Product 
+                (apiId, name, price, imageLink) 
+                values ('$this->apiId', '$this->name', '$this->price', '$this->imageLink')");
+            }
+            $res = $this->db->getMysqli()->query("select * from Product where apiId='$this->apiId'")->fetch_object();
+            $this->id = $res->id;
+            $userId = $_SESSION["userId"];
+            $cartId = $this->db->getMysqli()->query("select * from cart where userId='$userId'")->fetch_object()->id;
+            // if product not in cart
+            if($this->db->getMysqli()->query("select * from productCart where productId='$this->id' AND cartId='$cartId'")->num_rows == 0) {
+                $this->db->insert("insert into productCart 
+                (productId, cartId, quantity) 
+                values ('$this->id', '$cartId', 1)");
+            }
+            else {
+                $quantity = $this->db->getMysqli()->query("select * from productCart where productId='$res->productId' AND cartId='$cartId'")->fetch_object()->quantity;
+                $quantity++;
+                $this->db->getMysqli()->query("update productCart set quantity=$quantity where productId='$res->productId' AND cartId='$cartId'");
+            }
+        } catch (\Throwable $th) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function addToCart()
     {
 
     }
 
-    public function read(int $id)
-    {
-
-    }
-
-    public function update(int $id, array $data)
-    {
-
-    }
-
-    public function delete(int $id)
-    {
-
-    }
 }

@@ -5,7 +5,7 @@
         </a>
       </li>
       <li class="nav-item"><a href="index.php?content_id=ingredients" class="nav-link">Danie</a></li>
-      <li class="nav-item"><a href="index.php?content_id=orders" class="nav-link">Zamówienie</a></li>
+      <li class="nav-item"><a href="index.php?content_id=orders" class="nav-link">Koszyk</a></li>
       <li class="nav-item"><a href="index.php?content_id=about" class="nav-link">O nas</a></li>
       <?php 
       if (isset($_SESSION["userId"]) && $_GET["content_id"] != "logout") {

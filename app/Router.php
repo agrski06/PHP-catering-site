@@ -11,6 +11,7 @@ include_once("controllers/LoginUserController.php");
 include_once("controllers/RegisterController.php");
 include_once("controllers/RegisterUserController.php");
 include_once("controllers/LogoutController.php");
+include_once("controllers/AddToCartIngredientController.php");
 
 class Router
 {
@@ -36,6 +37,7 @@ class Router
             "register" => new RegisterController(),
             "registerUser" => new RegisterUserController(),
             "logout" => new LogoutController(),
+            "addToCart" => new AddToCartIngredientController(),
             "loginSuccessful" => new LoginSuccessfulController()
         ];
     }
@@ -56,6 +58,10 @@ class Router
     {
         $error = $message;
         require("../view/customError.php");
+    }
+
+    public function getRoutes() {
+        return $this->routes;
     }
 }
 

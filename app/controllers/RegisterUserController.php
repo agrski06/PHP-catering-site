@@ -11,6 +11,7 @@ class RegisterUserController extends Controller
 
     function __construct()
     {
+        $NAME_REGEX = "/[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*/";
         if (
             isset($_POST["login"],
             $_POST["password"],
@@ -26,7 +27,7 @@ class RegisterUserController extends Controller
                 Controller::__construct("../view/invalidData.php");
                 return;
             }
-            if (!ctype_alpha($_POST["firstname"]) || !ctype_alpha($_POST["lastname"])) {
+            if (preg_match($NAME_REGEX, $_POST["firstname"]) == 0 || preg_match($NAME_REGEX, $_POST["lastname"]) == 0) {
                 Controller::__construct("../view/invalidData.php");
                 return;
             }

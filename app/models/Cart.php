@@ -1,7 +1,14 @@
 <?php
+include_once("../app/Database.php");
+
 class Cart {
     protected $id;
     protected $userId;
+    private $db;
+
+    function __construct() {
+        $this->db = new DataBase("localhost", "root", "", "catering");
+    }
 
     function getId() {
         return $this->id;
@@ -12,28 +19,44 @@ class Cart {
     }
 
     // SETTER
+    function setId($id) {
+        $this->id = $id;
+    }
+
     function setUserId($userId) {
         $this->userId = $userId;
     }
 
-    // CRUD OPERATIONS
-    public function create(array $data)
-    {
+    // return 0 if cart is empty
+    public function getProducts() {
+        try {
+            if ($this->db->getMysqli()->query("select * from productcart where cartId='$this->id'")->num_rows==0) {
+                //cart empty
+                return array();
+            }
+            $prcart = $this->db->getMysqli()->query("select * from productcart where cartId='$this->id'")->fetch_all();
+            $products = array();
+
+            foreach ($prcart as $obj) {
+                $prId = $obj[0];
+                $quantity = $obj[2];
+                $product = $this->db->getMysqli()->query("select * from product where id='$prId'")->fetch_object();
+                array_push($products, [
+                    "productName" => $product->name,
+                    "productPrice" => $product->price,
+                    "productImage" => $product->imageLink,
+                    "quantity" => $quantity
+                ]);
+            }
+            
+            return $products;
+        } catch (\Throwable $th) {
+            return -1;
+        }
 
     }
 
-    public function read(int $id)
-    {
-
-    }
-
-    public function update(int $id, array $data)
-    {
-
-    }
-
-    public function delete(int $id)
-    {
-
+    public function getMysqli() {
+        return $this->db->getMysqli();
     }
 }

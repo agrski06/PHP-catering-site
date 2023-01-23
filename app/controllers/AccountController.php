@@ -1,8 +1,12 @@
 <?php 
 include_once("Controller.php");
+include_once("../app/models/User.php");
 
-class AccountController extends Controller {
-    function __construct() {
-        Controller::__construct("../view/account.php");
+class AccountController {
+    function show() {
+        $user = new User();
+        $user->read($_SESSION["userId"]);
+
+        require_once("../view/account.php");
     }
 }

@@ -42,9 +42,23 @@ class User
         return true;
     }
 
-    public function read()
+    public function read($userId)
     {
+        try {
+            $response = $this->db->getMysqli()->query("select * from user where id=$userId")->fetch_object();
+            
+            $this->id = $response->id;
+            $this->firstName = $response->firstName;
+            $this->lastName = $response->lastName;
+            $this->userName = $response->userName;
+            $this->password = $response->password;
+            $this->email = $response->email;
+            $this->cartId = $response->cartId;
+        } catch (\Throwable $th) {
+            return false;
+        }
 
+        return true;
     }
 
     public function update()

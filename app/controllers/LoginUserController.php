@@ -8,7 +8,7 @@ class LoginUserController
         $db = new DataBase("localhost", "root", "", "catering");
         $this->isError = false;
 
-        if (isset($_POST["login"], $_POST["password"])) {
+        if (isset($_POST["login"], $_POST["password"]) && $_GET["content_id"] == "loginUser") {
             if (!ctype_alnum($_POST["login"])) {
                 $this->isError = true;
             }
