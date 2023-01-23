@@ -56,6 +56,21 @@ class Cart {
 
     }
 
+    public function clearCart() {
+        try {
+            
+            if ($this->db->getMysqli()->query("select * from productcart where cartId='$this->id'")->num_rows==0) {
+                //cart empty
+                return true;
+            }
+            $this->db->getMysqli()->query("delete from productcart where cartId='$this->id'");
+            
+        } catch (\Throwable $th) {
+            return false;
+        }
+        return true;
+    }
+
     public function getMysqli() {
         return $this->db->getMysqli();
     }

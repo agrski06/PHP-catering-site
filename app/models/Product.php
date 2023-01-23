@@ -68,20 +68,15 @@ class Product
                 values ('$this->id', '$cartId', 1)");
             }
             else {
-                $quantity = $this->db->getMysqli()->query("select * from productCart where productId='$res->productId' AND cartId='$cartId'")->fetch_object()->quantity;
+                $quantity = $this->db->getMysqli()->query("select * from productCart where productId='$this->id' AND cartId='$cartId'")->fetch_object()->quantity;
                 $quantity++;
-                $this->db->getMysqli()->query("update productCart set quantity=$quantity where productId='$res->productId' AND cartId='$cartId'");
+                $this->db->getMysqli()->query("update productCart set quantity=$quantity where productId='$this->id' AND cartId='$cartId'");
             }
         } catch (\Throwable $th) {
             return false;
         }
 
         return true;
-    }
-
-    public function addToCart()
-    {
-
     }
 
 }

@@ -9,5 +9,8 @@ RewriteCond %{DOCUMENT_ROOT}/public/$1 -f
 RewriteRule (.+) public/$1 [L]
 
 # Route all other requests
-RewriteRule (.*) public/index.php?route=$1 [L,QSA]
+#RewriteRule (.*) public/index.php?route=$1 [L,QSA]
+
+# this seems to work??? (all unknown traffic to home)
+RewriteRule (.*) public/index.php?content_id=home [L,QSA]
 </IfModule>

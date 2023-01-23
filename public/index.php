@@ -6,6 +6,6 @@ require_once '../config/config.php';
 require_once '../app/Router.php';
 
 // database handler
-require_once '../app/Database.php';
+
 
 require_once '../view/index.php';
