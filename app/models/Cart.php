@@ -42,6 +42,7 @@ class Cart {
                 $quantity = $obj[2];
                 $product = $this->db->getMysqli()->query("select * from product where id='$prId'")->fetch_object();
                 array_push($products, [
+                    "productId" => $prId,
                     "productName" => $product->name,
                     "productPrice" => $product->price,
                     "productImage" => $product->imageLink,

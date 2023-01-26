@@ -5,8 +5,8 @@
             <div class="content">
                 <h1>Catering</h1>
                 <p>Najlepszy catering w mieście!</p>
-                <button type="button" class="btn btn-primary"
-                    onclick="window.location.href='#ingredients'">Zamów</button>
+                <button type="submit" class="btn btn-primary"
+                    onclick="window.location.href='index.php?content_id=ingredients'">Zamów</button>
             </div>
         </div>
     </header>
@@ -18,7 +18,7 @@
                 <h3>Zupa</h3>
                 <p>Fajna zupka - polecamy</p>
             </div>
-            <button type="button" class="btn btn-primary" onclick="zupa()">Zamów</button>
+
         </div>
         <div class="option">
             <img src="img/obiad1.jpg" alt="">
@@ -26,7 +26,6 @@
                 <h3>Obiad 1</h3>
                 <p>Zestaw obiadowy 1 - zupa pomidorowa, sałatka + pizza oraz kompot jabłkowy</p>
             </div>
-            <button type="button" class="btn btn-primary" onclick="obiad1()">Zamów</button>
         </div>
         <div class="option">
             <img src="img/obiad2.jpg" alt="">
@@ -34,7 +33,6 @@
                 <h3>Obiad 2</h3>
                 <p>Zestaw obiadowy 2 - zupa ogórkowa, zielenina oraz kompot</p>
             </div>
-            <button type="button" class="btn btn-primary" onclick="obiad2()">Zamów</button>
         </div>
     </div>
 
@@ -44,7 +42,7 @@
                 <h1>O nas</h1>
                 <p>Jesteśmy firmą specjalizującą się w dostarczaniu cateringu</p>
                 <p>Działamy na runku już od wielu lat.</p>
-                <button type="button" class="btn btn-primary" onclick="window.location.href='#about'">Więcej</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='index.php?content_id=about'">Więcej</button>
                 <p></p>
             </div>
         </div>

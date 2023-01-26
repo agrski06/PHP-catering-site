@@ -14,6 +14,8 @@ include_once("controllers/LogoutController.php");
 include_once("controllers/AddToCartIngredientController.php");
 include_once("controllers/ClearCartController.php");
 include_once("controllers/MakeOrderController.php");
+include_once("controllers/UserOrderController.php");
+include_once("controllers/ClearOrdersController.php");
 
 class Router
 {
@@ -42,7 +44,9 @@ class Router
             "addToCart" => new AddToCartIngredientController(),
             "loginSuccessful" => new LoginSuccessfulController(),
             "clearCart" => new ClearCartController(),
-            "makeOrder" => new MakeOrderController()
+            "makeOrder" => new MakeOrderController(),
+            "userOrder" => new UserOrderController(),
+            "clearOrders" => new ClearOrdersController()
         ];
     }
 
