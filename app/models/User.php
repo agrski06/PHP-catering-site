@@ -61,14 +61,46 @@ class User
         return true;
     }
 
-    public function update()
-    {
-
+    public function updateLogin($login) {
+        try {
+            $this->db->getMysqli()->query("update user set userName='$login' where id=$this->id");
+        } catch (\Throwable $th) {
+            print("<br><br><br><br><br><br>" . $th->getMessage());
+            return false;
+        }
+        return true;
     }
-
-    public function delete()
-    {
-
+    public function updatePassword($password) {
+        try {
+            $this->db->getMysqli()->query("update user set password='$password' where id=$this->id");
+        } catch (\Throwable $th) {
+            return false;
+        }
+        return true;
+    }
+    public function updateFirstName($fn) {
+        try {
+            $this->db->getMysqli()->query("update user set firstname='$fn' where id=$this->id");
+        } catch (\Throwable $th) {
+            return false;
+        }
+        return true;
+    }
+    public function updateLastName($ln) {
+        try {
+            $this->db->getMysqli()->query("update user set lastname='$ln' where id=$this->id");
+        } catch (\Throwable $th) {
+            return false;
+        }
+        return true;
+    }
+    public function updateEmail($em) {
+        try {
+            $this->db->getMysqli()->query("update user set email='$em' where id=$this->id");
+        } catch (\Throwable $th) {
+            return false;
+        }
+        return true;
     }
 
     // GETTERS SETTERS

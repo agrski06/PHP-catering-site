@@ -66,4 +66,4 @@ ALTER TABLE `productOrder` ADD CONSTRAINT `productOrder_fk1` FOREIGN KEY (`order
   <br />
 
 # Uruchomienie
-Folder ```catering``` należy przenieść do folderu htdocs, uruchomić serwer Apache, a następnie w przeglądarce wpisać adres ```localhost/catering/```. Powinna zostać wyświetlona strona domowa.
+Folder ```catering``` należy przenieść do folderu htdocs, uruchomić serwer Apache, a następnie w przeglądarce wpisać adres ```localhost/catering/public```. Powinna zostać wyświetlona strona domowa.

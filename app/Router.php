@@ -28,7 +28,8 @@ class Router
             "clearCart" => new ClearCartController(),
             "makeOrder" => new MakeOrderController(),
             "userOrder" => new UserOrderController(),
-            "clearOrders" => new ClearOrdersController()
+            "clearOrders" => new ClearOrdersController(),
+            "updateUser" => new UpdateUserController()
         ];
     }
 
