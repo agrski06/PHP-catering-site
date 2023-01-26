@@ -1,22 +1,5 @@
 <?php
 
-include_once("controllers/HomeController.php");
-include_once("controllers/IngredientsController.php");
-include_once("controllers/AboutController.php");
-include_once("controllers/OrderController.php");
-include_once("controllers/AccountController.php");
-include_once("controllers/LoginController.php");
-include_once("controllers/LoginSuccessfulController.php");
-include_once("controllers/LoginUserController.php");
-include_once("controllers/RegisterController.php");
-include_once("controllers/RegisterUserController.php");
-include_once("controllers/LogoutController.php");
-include_once("controllers/AddToCartIngredientController.php");
-include_once("controllers/ClearCartController.php");
-include_once("controllers/MakeOrderController.php");
-include_once("controllers/UserOrderController.php");
-include_once("controllers/ClearOrdersController.php");
-
 class Router
 {
     // private $home = new HomeController;
@@ -30,6 +13,9 @@ class Router
 
     function __construct()
     {
+        foreach (glob("../app/controllers/*.php") as $filename) {
+            include_once $filename;
+        }
         $this->routes = [
             "home" => new HomeController(),
             "ingredients" => new IngredientsController(),
@@ -68,7 +54,8 @@ class Router
         require("../view/customError.php");
     }
 
-    public function getRoutes() {
+    public function getRoutes()
+    {
         return $this->routes;
     }
 }
