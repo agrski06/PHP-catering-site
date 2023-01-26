@@ -11,7 +11,7 @@ class RegisterUserController extends Controller
 
     function __construct()
     {
-        $NAME_REGEX = "/[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*/";
+        $NAME_REGEX = "/^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*$/";
         if (
             isset($_POST["login"],
             $_POST["password"],

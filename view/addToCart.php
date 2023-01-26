@@ -7,6 +7,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        color: white;
         ">
         <p>Produkt dodany do koszyka</p>
 </div>

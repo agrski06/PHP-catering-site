@@ -2,10 +2,6 @@
 
 class Router
 {
-    // private $home = new HomeController;
-    // private $ingredients = new IngredientsController();
-    // private $about = new AboutController();
-    // private $registerUser = new RegisterUserController();
 
     private $routes = [];
 

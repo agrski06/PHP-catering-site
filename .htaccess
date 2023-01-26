@@ -13,4 +13,5 @@ RewriteRule (.+) public/$1 [L]
 
 # this seems to work??? (all unknown traffic to home)
 RewriteRule (.*) public/index.php?content_id=home [L,QSA]
+
 </IfModule>
