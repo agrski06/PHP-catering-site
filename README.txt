@@ -1,8 +1,8 @@
-<h1>Baza danych</h1>
+# Baza danych
 
-Do uruchomienia aplikacji nie potrzebne są żadne dane w tabelach. W phpMyAdmin należy utworzyć bazę danych o nazwie ```catering``` (dane do logowanie domyślne - login: "```localhost```", hasło puste) i utworzyć tabele za pomocą kodu poniżej.
+Do uruchomienia aplikacji nie potrzebne są żadne dane w tabelach. W phpMyAdmin należy utworzyć bazę danych o nazwie catering (dane do logowanie domyślne - login: "localhost", hasło puste) i utworzyć tabele za pomocą kodu poniżej.
+----------------------------------------------------------------------------------------------------------------------
 
-```sql
 CREATE TABLE `Product` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`apiId` INT NOT NULL UNIQUE,
@@ -60,8 +60,6 @@ ALTER TABLE `productOrder` ADD CONSTRAINT `productOrder_fk0` FOREIGN KEY (`produ
 
 ALTER TABLE `productOrder` ADD CONSTRAINT `productOrder_fk1` FOREIGN KEY (`orderId`) REFERENCES `order`(`id`);
 
-```
-  <br />
-
+----------------------------------------------------------------------------------------------------------------------
 # Uruchomienie
-Folder ```catering``` należy przenieść do folderu htdocs, uruchomić serwer Apache, a następnie w przeglądarce wpisać adres ```localhost/catering/public```. Powinna zostać wyświetlona strona domowa.
+Folder 'catering' należy przenieść do folderu htdocs, uruchomić serwer Apache, a następnie w przeglądarce wpisać adres 'localhost/catering/public'. Powinna zostać wyświetlona strona domowa.
