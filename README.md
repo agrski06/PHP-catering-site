@@ -1,6 +1,6 @@
 <h1>Baza danych</h1>
 
-Do uruchomienia aplikacji nie potrzebne są żadne dane w tabelach. W phpMyAdmin należy utworzyć bazę danych o nazwie ```catering``` (dane do logowanie domyślne - login: "```localhost```", hasło puste) i utworzyć tabele za pomocą kodu poniżej.
+Do uruchomienia aplikacji nie potrzebne są żadne dane w tabelach. W phpMyAdmin należy utworzyć bazę danych o nazwie ```catering``` (dane do logowanie domyślne - login: "```root```", hasło puste) i utworzyć tabele za pomocą kodu poniżej.
 
 ```sql
 CREATE TABLE `Product` (
